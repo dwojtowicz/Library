@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import com.library.entity.Book;
+import com.library.entity.BookDetail;
 import com.library.entity.User;
 import com.library.service.BookService;
 import com.library.service.UserService;
@@ -70,6 +71,27 @@ public class UserController {
         bookService.saveBook(book);
 
         return "redirect:/user/book/menu";
+    }
+
+    @GetMapping("/book/detail")
+    public String bookDetail(@RequestParam("bookId") int theId, Model theModel){
+
+        Book theBook = bookService.getBooks(theId);
+
+        theModel.addAttribute("book", theBook);
+
+        if (theBook.getBookDetail() == null){
+        return "add-detail";}
+        else {
+            return "book-detail";}
+    }
+
+    @PostMapping("/saveDetail")
+    public String saveDetail(@ModelAttribute("detail") BookDetail bookDetail){
+
+        bookService.saveBookDetail(bookDetail);
+
+        return "redirect:/user/book/detail";
     }
 
 

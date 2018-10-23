@@ -1,6 +1,7 @@
 package com.library.dao;
 
 import com.library.entity.Book;
+import com.library.entity.BookDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -35,5 +36,25 @@ public class BookDAOImpl implements BookDAO {
         Session currentSession = sessionFactory.getCurrentSession();
 
         currentSession.saveOrUpdate(book);
+    }
+
+    @Override
+    public Book getBooks(int theId) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Book theBook = currentSession.get(Book.class, theId);
+
+        BookDetail bookDetail = new BookDetail();
+
+        return theBook;
+    }
+
+    @Override
+    public void saveBookDetail(BookDetail bookDetail) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        currentSession.saveOrUpdate(bookDetail);
+
     }
 }
