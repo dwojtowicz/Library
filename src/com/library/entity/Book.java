@@ -30,7 +30,6 @@ public class Book {
     private BookDetail bookDetail;
 
     public Book(){
-
     }
 
     public Book(String title, String bookAuthor, int quantity, BookDetail bookDetail) {

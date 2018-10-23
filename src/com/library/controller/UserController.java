@@ -7,10 +7,7 @@ import com.library.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -58,8 +55,21 @@ public class UserController {
     }
 
     @GetMapping("/book/addBook")
-    public String addBook(){
-        return "book-form";
+    public String addBook(Model theModel){
+
+        Book theBook = new Book();
+
+        theModel.addAttribute("book", theBook);
+
+        return "add-book";
+    }
+
+    @PostMapping("/saveBook")
+    public String saveBook(@ModelAttribute("book") Book book){
+
+        bookService.saveBook(book);
+
+        return "redirect:/user/book/menu";
     }
 
 
