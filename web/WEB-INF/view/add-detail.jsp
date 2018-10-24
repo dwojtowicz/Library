@@ -8,7 +8,7 @@
 
 Ooops it's seems there is no detail, do you want add some?
 
-<form:form action="/user/saveDetail" modelAttribute="bookDetail" method="POST">
+<form:form action="/saveDetail" modelAttribute="bookDetail" method="POST">
 <form:hidden path="id"/>
 
 <table>
@@ -18,13 +18,9 @@ Ooops it's seems there is no detail, do you want add some?
         <td><form:input path="description"/></td>
     </tr>
 
-    <tr>
-        <td><label></label></td>
-        <tb><input type="submit" value="Save" class="save"></tb>
-    </tr>
     </tbody>
 </table>
-
+    <input type="submit" value="Save" class="save"></tb>
 </form:form>
 
 <a href="${pageContext.request.contextPath}/user/book/menu">Back to menu</a>

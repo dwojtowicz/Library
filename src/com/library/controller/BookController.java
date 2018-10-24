@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
+@RequestMapping("/book")
+public class BookController {
 
     @Autowired
     private UserService userService;
@@ -38,7 +38,7 @@ public class UserController {
 
         userService.saveUser(theUser);
 
-        return "redirect:/library/menu";
+        return "redirect:/menu";
     }
 
     @GetMapping("/login")
@@ -46,7 +46,7 @@ public class UserController {
         return "login-form";
     }
 
-    @GetMapping("/book/menu")
+    @GetMapping("/menu")
     public String bookMenu(Model theModel){
 
         List<Book> theBooks = bookService.getBooks();
@@ -56,7 +56,7 @@ public class UserController {
         return "book-menu";
     }
 
-    @GetMapping("/book/addBook")
+    @GetMapping("/addBook")
     public String addBook(Model theModel){
 
         Book theBook = new Book();
@@ -71,10 +71,10 @@ public class UserController {
 
         bookService.saveBook(book);
 
-        return "redirect:/user/book/menu";
+        return "redirect:/book/menu";
     }
 
-    @GetMapping("/book/detail")
+    @GetMapping("/detail")
     public String bookDetail(@RequestParam("bookId") int theId, Model theModel){
 
         Book theBook = bookService.getBooks(theId);
@@ -86,31 +86,51 @@ public class UserController {
         if (theBook.getBookDetail() == null){
             BookDetail bookDetail = new BookDetail();
             theModel.addAttribute("bookDetail", bookDetail);
+            theBook.setBookDetail(bookDetail);
         return "add-detail";}
         else {
             return "book-detail";}
     }
 
+    @PostMapping("/saveDetail")
+    public String saveDetail(@ModelAttribute ("bookDetail") BookDetail bookDetail){
+
+        bookService.saveDetail(bookDetail);
+
+        return "redirect:/book/menu";
+    }
 
 
-    @GetMapping("/book/withdraw")
+    @GetMapping("/withdraw")
     public String withdrawBook(@RequestParam("bookId") int theId, Model theModel){
 
        Book theBook = bookService.withdrawBook(theId);
 
        theModel.addAttribute("books", theBook);
 
-        return "redirect:/user/book/menu";
+        return "redirect:/book/menu";
     }
 
-    @GetMapping("/book/deposit")
+    @GetMapping("deposit")
     public String depositBook(@RequestParam("bookId") int theId, Model theModel){
 
         Book theBook = bookService.depositBook(theId);
 
         theModel.addAttribute("books", theBook);
 
-        return "redirect:/user/book/menu";
+        return "redirect:/book/menu";
     }
+
+    @PostMapping("/search")
+    public String searchBook(@RequestParam("theSearchName")
+                             String theSearchName, Model theModel){
+        List<Book> theBooks = bookService.searchBook(theSearchName);
+
+        theModel.addAttribute("books", theBooks);
+
+        return "search-book";
+    }
+
+
 
 }

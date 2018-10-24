@@ -75,4 +75,40 @@ public class BookDAOImpl implements BookDAO {
 
         return theBook;
     }
+
+    @Override
+    public BookDetail saveDetail(BookDetail bookDetail) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        currentSession.saveOrUpdate(bookDetail);
+
+        return null;
+    }
+
+    @Override
+    public List<Book> searchBook(String theSearchName) {
+      Session currentSession = sessionFactory.getCurrentSession();
+
+      Query theQuery = null;
+
+      if(theSearchName != null && theSearchName.trim().length() > 0){
+          theQuery = currentSession.createQuery("from Book where lower(title) like :theName" , Book.class);
+          theQuery.setParameter("theName", "%" + theSearchName.toLowerCase() + "%");
+      } else
+          theQuery = currentSession.createQuery("from Book", Book.class);
+
+      List<Book> books = theQuery.getResultList();
+
+        return books;
+    }
+
+    @Override
+    public void deleteBook(int theId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery = currentSession.createQuery("delete from Book where id=:bookId");
+        theQuery.setParameter("bookId", theId);
+        theQuery.executeUpdate();
+    }
 }

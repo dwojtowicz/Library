@@ -8,7 +8,7 @@
 
 <h2>Please add book</h2>
 
-<form:form action="/user/saveBook" modelAttribute="book" method="POST">
+<form:form action="saveBook" modelAttribute="book" method="POST">
 <form:hidden path="id"/>
 
 
@@ -40,7 +40,7 @@
 </form:form>
 
 <p>
-    <a href="${pageContext.request.contextPath}/user/book/menu">Back to List</a>
+    <a href="${pageContext.request.contextPath}/book/menu">Back to List</a>
 </p>
 
 

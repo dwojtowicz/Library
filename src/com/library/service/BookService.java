@@ -8,15 +8,19 @@ import java.util.List;
 public interface BookService {
 
 
-    public List<Book> getBooks();
+    List<Book> getBooks();
 
-    public void saveBook(Book book);
+    void saveBook(Book book);
 
-    public Book getBooks(int theId);
+    Book getBooks(int theId);
 
+    Book withdrawBook(int theId);
 
+    Book depositBook(int theId);
 
-    public Book withdrawBook(int theId);
+    BookDetail saveDetail(BookDetail bookDetail);
 
-    public Book depositBook(int theId);
+    List<Book> searchBook(String theSearchName);
+
+    void deleteBook(int theId);
 }

@@ -11,11 +11,11 @@
 Library - coming soon...
 
 <p>
-    <a href="${pageContext.request.contextPath }/user/register">Register new user</a>
+    <a href="${pageContext.request.contextPath }/book/menu">Login to library</a>
 </p>
 
 <p>
-    <a href="${pageContext.request.contextPath }/user/login">Log in</a>
+    <a href="${pageContext.request.contextPath}/admin/menu">Admin Panel</a>
 </p>
 
 </body>

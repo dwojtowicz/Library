@@ -36,11 +36,11 @@
             <c:param name="bookId" value="${tempBook.id}"/>
         </c:url>
 
-        <c:url var="updateLink" value="/book/update">
+        <c:url var="updateLink" value="/admin/update">
             <c:param name="bookId" value="${tempBook.id}"/>
         </c:url>
 
-        <c:url var="deleteLink" value="/book/delete">
+        <c:url var="deleteLink" value="/admin/delete">
             <c:param name="bookId" value="${tempBook.id}"/>
         </c:url>
 
@@ -54,11 +54,19 @@
             <td>
                 <a href="${updateLink}">Update</a>
                 |
-                <a href="${deleteLink}">Delete</a>
+                <a href="${deleteLink}"
+                onclick="if(!(confirm('Are you sure you want delete this book?')))return false">Delete</a>
             </td>
         </tr>
     </c:forEach>
 </table>
 
+<p>
+    <a href="${pageContext.request.contextPath}/admin/menu">Show all</a>
+</p>
+
+<p>
+    <a href="${pageContext.request.contextPath}/book/menu">Go to user menu</a>
+</p>
 </body>
 </html>

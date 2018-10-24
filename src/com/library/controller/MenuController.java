@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/library")
+@RequestMapping("/menu")
 public class MenuController {
 
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/menu")
+    @RequestMapping()
     private String mainMenu(){
 
         return "main-menu";
