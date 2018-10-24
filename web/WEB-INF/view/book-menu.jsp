@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 
@@ -22,11 +23,21 @@
         <th>Book Author</th>
         <th>Quantity</th>
         <th>Detail</th>
+        <th>Action</th>
+
     </tr>
 
     <c:forEach var="tempBook" items="${books}">
 
     <c:url var="detailLink" value="/user/book/detail" >
+        <c:param name="bookId" value="${tempBook.id}"/>
+    </c:url>
+
+    <c:url var="withdrawLink" value="/user/book/withdraw">
+        <c:param name="bookId" value="${tempBook.id}"/>
+    </c:url>
+
+    <c:url var="depositLink" value="/user/book/deposit">
         <c:param name="bookId" value="${tempBook.id}"/>
     </c:url>
 
@@ -36,6 +47,11 @@
         <td>${tempBook.quantity}</td>
         <td>
             <a href="${detailLink}">Detail</a>
+        </td>
+        <td>
+            <a href="${withdrawLink}">Withdraw</a>
+            |
+            <a href="${depositLink}">Deposit</a>
         </td>
     </tr>
     </c:forEach>

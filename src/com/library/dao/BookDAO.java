@@ -13,5 +13,7 @@ public interface BookDAO {
 
     public Book getBooks(int theId);
 
-    public void saveBookDetail(BookDetail bookDetail);
+    public Book withdrawBook(int theId);
+
+    public Book depositBook(int theId);
 }

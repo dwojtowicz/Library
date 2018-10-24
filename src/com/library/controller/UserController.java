@@ -5,6 +5,7 @@ import com.library.entity.BookDetail;
 import com.library.entity.User;
 import com.library.service.BookService;
 import com.library.service.UserService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -80,19 +81,36 @@ public class UserController {
 
         theModel.addAttribute("book", theBook);
 
+
+
         if (theBook.getBookDetail() == null){
+            BookDetail bookDetail = new BookDetail();
+            theModel.addAttribute("bookDetail", bookDetail);
         return "add-detail";}
         else {
             return "book-detail";}
     }
 
-    @PostMapping("/saveDetail")
-    public String saveDetail(@ModelAttribute("detail") BookDetail bookDetail){
 
-        bookService.saveBookDetail(bookDetail);
 
-        return "redirect:/user/book/detail";
+    @GetMapping("/book/withdraw")
+    public String withdrawBook(@RequestParam("bookId") int theId, Model theModel){
+
+       Book theBook = bookService.withdrawBook(theId);
+
+       theModel.addAttribute("books", theBook);
+
+        return "redirect:/user/book/menu";
     }
 
+    @GetMapping("/book/deposit")
+    public String depositBook(@RequestParam("bookId") int theId, Model theModel){
+
+        Book theBook = bookService.depositBook(theId);
+
+        theModel.addAttribute("books", theBook);
+
+        return "redirect:/user/book/menu";
+    }
 
 }

@@ -34,9 +34,18 @@ public class BookServiceImpl implements BookService {
         return bookDAO.getBooks(theId);
     }
 
+
     @Override
     @Transactional
-    public void saveBookDetail(BookDetail bookDetail) {
-        bookDAO.saveBookDetail(bookDetail);
+    public Book withdrawBook(int theId) {
+
+       return bookDAO.withdrawBook(theId);
+
+    }
+
+    @Override
+    @Transactional
+    public Book depositBook(int theId) {
+        return bookDAO.depositBook(theId);
     }
 }

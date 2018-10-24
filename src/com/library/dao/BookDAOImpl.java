@@ -45,16 +45,34 @@ public class BookDAOImpl implements BookDAO {
 
         Book theBook = currentSession.get(Book.class, theId);
 
-        BookDetail bookDetail = new BookDetail();
+        return theBook;
+    }
+
+
+    @Override
+    public Book withdrawBook(int theId) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Book theBook = currentSession.get(Book.class, theId);
+
+
+        if(theBook.getQuantity() > 0){
+        theBook.setQuantity(theBook.getQuantity()-1);
+        } else theBook.setQuantity(0);
 
         return theBook;
     }
 
     @Override
-    public void saveBookDetail(BookDetail bookDetail) {
+    public Book depositBook(int theId) {
+
         Session currentSession = sessionFactory.getCurrentSession();
 
-        currentSession.saveOrUpdate(bookDetail);
+        Book theBook = currentSession.get(Book.class, theId);
 
+        theBook.setQuantity(theBook.getQuantity()+1);
+
+        return theBook;
     }
 }
