@@ -23,7 +23,7 @@ Ooops it's seems there is no detail, do you want add some?
     <input type="submit" value="Save" class="save"></tb>
 </form:form>
 
-<a href="${pageContext.request.contextPath}/user/book/menu">Back to menu</a>
+<a href="${pageContext.request.contextPath}/book/menu">Back to menu</a>
 
 </body>
 </html>
