@@ -8,7 +8,7 @@
 
 Ooops it's seems there is no detail, do you want add some?
 
-<form:form action="/saveDetail" modelAttribute="bookDetail" method="POST">
+<form:form action="/admin/saveDetail" modelAttribute="bookDetail" method="POST">
 <form:hidden path="id"/>
 
 <table>

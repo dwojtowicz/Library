@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import com.library.entity.Book;
+import com.library.entity.BookDetail;
 import com.library.entity.User;
 import com.library.service.BookService;
 import com.sun.org.apache.xpath.internal.operations.Mod;
@@ -73,7 +74,21 @@ public class AdminController {
 
     @GetMapping("/detail")
     public String bookDetail(@RequestParam("bookId") int theId, Model theModel){
-        return null;
+
+        Book theBook = bookService.getBooks(theId);
+        BookDetail bookDetail = new BookDetail();
+        theBook.setBookDetail(bookDetail);
+        theModel.addAttribute("book", theBook);
+        theModel.addAttribute("bookDetail", bookDetail);
+
+        return "add-detail";
+    }
+
+    @PostMapping("/saveDetail")
+    public String saveDetail(@ModelAttribute("bookDetail") BookDetail bookDetail){
+
+        bookService.saveDetail(bookDetail);
+        return "redirect:/admin/menu";
     }
 
 }
