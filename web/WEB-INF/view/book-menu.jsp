@@ -13,9 +13,7 @@
 <body>
 
 <h2>Our books</h2>
-<input type="button" value="Add Book"
-        onclick="window.location.href='addBook'; return false;"
-        class="add-button"/>
+
 
 <form:form action="search" method="POST">
     Search book:<input type="text" name="theSearchName"/>

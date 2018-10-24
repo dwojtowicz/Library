@@ -14,6 +14,9 @@
 
 <h2>Admin Panel</h2>
 
+<input type="button" value="Add Book"
+       onclick="window.location.href='addBook'; return false;"
+       class="add-button"/>
 
 <form:form action="search" method="POST">
     Search book:<input type="text" name="theSearchName"/>
@@ -32,7 +35,7 @@
 
     <c:forEach var="tempBook" items="${books}">
 
-        <c:url var="detailLink" value="/book/detail" >
+        <c:url var="detailLink" value="/admin/detail" >
             <c:param name="bookId" value="${tempBook.id}"/>
         </c:url>
 

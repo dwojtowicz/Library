@@ -18,33 +18,8 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    private UserService userService;
-
-    @Autowired
     private BookService bookService;
 
-    @GetMapping("/register")
-    private String registerUser(Model theModel ){
-
-        User theUser = new User();
-
-        theModel.addAttribute("user", theUser);
-
-        return "register-form";
-    }
-
-    @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute("user") User theUser){
-
-        userService.saveUser(theUser);
-
-        return "redirect:/menu";
-    }
-
-    @GetMapping("/login")
-    public String login(){
-        return "login-form";
-    }
 
     @GetMapping("/menu")
     public String bookMenu(Model theModel){
@@ -56,24 +31,6 @@ public class BookController {
         return "book-menu";
     }
 
-    @GetMapping("/addBook")
-    public String addBook(Model theModel){
-
-        Book theBook = new Book();
-
-        theModel.addAttribute("book", theBook);
-
-        return "add-book";
-    }
-
-    @PostMapping("/saveBook")
-    public String saveBook(@ModelAttribute("book") Book book){
-
-        bookService.saveBook(book);
-
-        return "redirect:/book/menu";
-    }
-
     @GetMapping("/detail")
     public String bookDetail(@RequestParam("bookId") int theId, Model theModel){
 
@@ -81,16 +38,9 @@ public class BookController {
 
         theModel.addAttribute("book", theBook);
 
-
-
-        if (theBook.getBookDetail() == null){
-            BookDetail bookDetail = new BookDetail();
-            theModel.addAttribute("bookDetail", bookDetail);
-            theBook.setBookDetail(bookDetail);
-        return "add-detail";}
-        else {
-            return "book-detail";}
+            return "book-detail";
     }
+
 
     @PostMapping("/saveDetail")
     public String saveDetail(@ModelAttribute ("bookDetail") BookDetail bookDetail){

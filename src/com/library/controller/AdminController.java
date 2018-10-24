@@ -39,6 +39,16 @@ public class AdminController {
         return "admin";
     }
 
+    @GetMapping("/addBook")
+    public String addBook(Model theModel){
+
+        Book theBook = new Book();
+
+        theModel.addAttribute("book", theBook);
+
+        return "add-book";
+    }
+
     @GetMapping("/update")
     public String update(@RequestParam("bookId") int theId, Model theModel){
 
@@ -59,6 +69,11 @@ public class AdminController {
     public String deleteCustomer(@RequestParam("bookId") int theId){
         bookService.deleteBook(theId);
         return "redirect:/admin/menu";
+    }
+
+    @GetMapping("/detail")
+    public String bookDetail(@RequestParam("bookId") int theId, Model theModel){
+        return null;
     }
 
 }
