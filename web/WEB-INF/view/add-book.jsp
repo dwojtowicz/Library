@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Add book</title>
@@ -41,6 +42,12 @@
         <tr>
             <td>Quantity</td>
             <td><form:input path="quantity"/></td>
+        </tr>
+
+        <tr>
+            <td>Book Details</td>
+            <td><form:input path="bookDetail"/></td>
+
         </tr>
 
         <tr>

@@ -1,11 +1,7 @@
 package com.library.controller;
 
 import com.library.entity.Book;
-import com.library.entity.BookDetail;
-import com.library.entity.User;
 import com.library.service.BookService;
-import com.library.service.UserService;
-import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -41,14 +37,6 @@ public class BookController {
             return "book-detail";
     }
 
-
-    @PostMapping("/saveDetail")
-    public String saveDetail(@ModelAttribute ("bookDetail") BookDetail bookDetail){
-
-        bookService.saveDetail(bookDetail);
-
-        return "redirect:/book/menu";
-    }
 
 
     @GetMapping("/withdraw")

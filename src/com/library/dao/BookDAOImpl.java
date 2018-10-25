@@ -71,7 +71,9 @@ public class BookDAOImpl implements BookDAO {
 
         Book theBook = currentSession.get(Book.class, theId);
 
-        theBook.setQuantity(theBook.getQuantity()+1);
+        theBook.setQuantity(theBook.getQuantity() -1);
+
+
 
         return theBook;
     }
