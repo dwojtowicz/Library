@@ -5,8 +5,10 @@ import com.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -56,10 +58,13 @@ public class AdminController {
     }
 
     @PostMapping("/saveBook")
-    public String saveBook(@ModelAttribute("book") Book theBook){
+    public String saveBook(@Valid @ModelAttribute("book") Book theBook, BindingResult theBindingResult){
 
-        bookService.saveBook(theBook);
 
+        if (theBindingResult.hasErrors()){
+            return "add-book";
+        } else
+            bookService.saveBook(theBook);
         return "redirect:/admin/menu";
     }
 

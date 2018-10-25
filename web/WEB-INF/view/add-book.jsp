@@ -12,6 +12,9 @@
           rel="stylesheet"
           href="${pageContext.request.contextPath }/resources/css/add-book-style.css"
     />
+    <style>
+        .error{color:red}
+    </style>
 </head>
 <body>
 <div id="wrapper">
@@ -32,11 +35,13 @@
         <tr>
             <td>Name of Book:</td>
             <td><form:input path="title"/></td>
+            <td><form:errors path="title" cssClass="error"/></td>
         </tr>
 
         <tr>
             <td>Author</td>
             <td><form:input path="bookAuthor"/></td>
+            <td><form:errors path="bookAuthor" cssClass="error"/></td>
         </tr>
 
         <tr>
@@ -47,7 +52,7 @@
         <tr>
             <td>Book Details</td>
             <td><form:input path="bookDetail"/></td>
-
+            <td><form:errors path="bookDetail" cssClass="error"/></td>
         </tr>
 
         <tr>

@@ -1,6 +1,5 @@
 package com.library.entity;
 
-
 import javax.persistence.*;
 
 @Entity
@@ -42,9 +41,6 @@ public class BookDetail {
 
     @Override
     public String toString() {
-        return "BookDetail{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                '}';
+        return " ";
     }
 }

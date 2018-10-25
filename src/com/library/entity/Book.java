@@ -4,6 +4,8 @@ package com.library.entity;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="book")
@@ -15,16 +17,20 @@ public class Book {
     @Column(name="id")
     private int id;
 
+    @NotNull(message = "is required")
+    @Size(min = 1, message = "is required")
     @Column(name = "title")
     private String title;
 
+    @NotNull(message = "is required")
+    @Size(min = 1, message = "is required")
     @Column(name = "book_author")
     private String bookAuthor;
 
     @Column(name = "quantity")
     private int quantity;
 
-
+    @NotNull(message = "is required")
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_detail_id")
     private BookDetail bookDetail;
