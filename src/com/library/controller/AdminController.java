@@ -55,7 +55,7 @@ public class AdminController {
 
         Book theBook = bookService.getBooks(theId);
         theModel.addAttribute("book", theBook);
-        return "update-book";
+        return "add-book";
     }
 
     @PostMapping("/saveBook")

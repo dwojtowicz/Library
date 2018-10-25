@@ -3,17 +3,27 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <head>
     <title>Books List</title>
+
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css"
+    />
 </head>
 
 
 <body>
 
-<h2>Our books</h2>
 
+<div id="wrapper">
+    <div id="header">
+<h2>Books list</h2>
+    </div>
+</div>
+
+        <div id="container">
+            <div id="content">
 
 <form:form action="search" method="POST">
     Search book:<input type="text" name="theSearchName"/>
@@ -64,5 +74,8 @@
 <p>
     <a href="${pageContext.request.contextPath}/menu">Main menu</a>
 </p>
+
+            </div>
+        </div>
 </body>
 </html>

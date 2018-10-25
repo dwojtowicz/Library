@@ -3,16 +3,26 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <head>
     <title>Books List</title>
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css"
+    />
 </head>
 
 
 <body>
-
+<div id="wrapper">
+    <div id="header">
 <h2>Our books</h2>
+    </div>
+</div>
+
+<div id="container">
+    <div id="content">
+
+
 <table>
     <tr>
         <th>Title</th>
@@ -56,6 +66,8 @@
 <p>
     <a href="${pageContext.request.contextPath}/book/menu">Back to List</a>
 </p>
+    </div>
+</div>
 
 </body>
 </html>

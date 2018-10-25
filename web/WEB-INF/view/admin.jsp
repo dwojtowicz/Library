@@ -3,16 +3,25 @@
 <!DOCTYPE html>
 <html>
 
-
-
 <head>
     <title>Admin Panel</title>
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css/style.css"
+    />
 </head>
 
 
 <body>
 
+<div id="wrapper">
+    <div id="header">
 <h2>Admin Panel</h2>
+    </div>
+</div>
+
+<div id="container">
+    <div id="content">
 
 <input type="button" value="Add Book"
        onclick="window.location.href='addBook'; return false;"
@@ -71,5 +80,8 @@
 <p>
     <a href="${pageContext.request.contextPath}/book/menu">Go to user menu</a>
 </p>
+
+    </div>
+</div>
 </body>
 </html>

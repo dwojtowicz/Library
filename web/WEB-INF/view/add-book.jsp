@@ -3,10 +3,23 @@
 <html>
 <head>
     <title>Add book</title>
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath }/resources/css/style.css"
+    />
+    <link type="text/css"
+          rel="stylesheet"
+          href="${pageContext.request.contextPath }/resources/css/add-book-style.css"
+    />
 </head>
 <body>
-
+<div id="wrapper">
+     <div id="header">
 <h2>Please add book</h2>
+     </div>
+</div>
+
+<div id="container">
 
 <form:form action="saveBook" modelAttribute="book" method="POST">
 <form:hidden path="id"/>
@@ -38,12 +51,13 @@
         </tbody>
     </table>
 </form:form>
+    <div style="clear; both;"></div>
 
 <p>
-    <a href="${pageContext.request.contextPath}/book/menu">Back to List</a>
+    <a href="${pageContext.request.contextPath}/admin/menu">Back to List</a>
 </p>
 
-
+</div>
 
 </body>
 </html>
