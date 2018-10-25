@@ -8,7 +8,7 @@
 
     <link type="text/css"
           rel="stylesheet"
-          href="${pageContext.request.contextPath}web/resources/css/style.css"
+          href="${pageContext.request.contextPath}/resources/css/style.css"
     />
 </head>
 
