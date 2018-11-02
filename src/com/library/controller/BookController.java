@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import com.library.entity.Book;
+import com.library.entity.BookDetail;
 import com.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,7 +24,6 @@ public class BookController {
         List<Book> theBooks = bookService.getBooks();
 
         theModel.addAttribute("books", theBooks);
-
         return "book-menu";
     }
 

@@ -19,7 +19,7 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional
     public List<Book> getBooks() {
-       return bookDAO.getBooks();
+        return bookDAO.getBooks();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class BookServiceImpl implements BookService {
     @Transactional
     public Book withdrawBook(int theId) {
 
-       return bookDAO.withdrawBook(theId);
+        return bookDAO.withdrawBook(theId);
 
     }
 
@@ -48,11 +48,6 @@ public class BookServiceImpl implements BookService {
         return bookDAO.depositBook(theId);
     }
 
-    @Override
-    @Transactional
-    public BookDetail saveDetail(BookDetail bookDetail) {
-        return bookDAO.saveDetail(bookDetail);
-    }
 
     @Override
     @Transactional
@@ -65,4 +60,10 @@ public class BookServiceImpl implements BookService {
     public void deleteBook(int theId) {
         bookDAO.deleteBook(theId);
     }
+
+    @Override
+    public BookDetail getDetail(int detailId) {
+        return bookDAO.getDetail(detailId);
+    }
+
 }

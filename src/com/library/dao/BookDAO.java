@@ -17,9 +17,9 @@ public interface BookDAO {
 
     public Book depositBook(int theId);
 
-    public BookDetail saveDetail(BookDetail bookDetail);
-
     public List<Book> searchBook(String theSearchName);
 
     void deleteBook(int theId);
+
+    BookDetail getDetail(int detailId);
 }

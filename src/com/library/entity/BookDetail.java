@@ -41,6 +41,6 @@ public class BookDetail {
 
     @Override
     public String toString() {
-        return " ";
+        return  description;
     }
 }

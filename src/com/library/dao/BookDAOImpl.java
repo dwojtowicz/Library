@@ -8,7 +8,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -79,16 +78,6 @@ public class BookDAOImpl implements BookDAO {
     }
 
     @Override
-    public BookDetail saveDetail(BookDetail bookDetail) {
-
-        Session currentSession = sessionFactory.getCurrentSession();
-
-        currentSession.saveOrUpdate(bookDetail);
-
-        return null;
-    }
-
-    @Override
     public List<Book> searchBook(String theSearchName) {
       Session currentSession = sessionFactory.getCurrentSession();
 
@@ -113,4 +102,15 @@ public class BookDAOImpl implements BookDAO {
         theQuery.setParameter("bookId", theId);
         theQuery.executeUpdate();
     }
+
+    @Override
+    public BookDetail getDetail(int detailId) {
+
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        BookDetail bookDetail = currentSession.get(BookDetail.class, detailId);
+
+        return bookDetail;
+    }
+
 }

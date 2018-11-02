@@ -30,13 +30,10 @@
                 <th>Book Detail</th>
             </tr>
 
-            <c:forEach var="tempBook" items="${books}">
-
-
                 <tr>
-                    <td>${tempBook.bookDetail}</td>
+                    <td>${book.bookDetail.description}</td>
                 </tr>
-            </c:forEach>
+
         </table>
 
 

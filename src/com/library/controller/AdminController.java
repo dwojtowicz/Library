@@ -1,7 +1,9 @@
 package com.library.controller;
 
 import com.library.entity.Book;
+import com.library.entity.BookDetail;
 import com.library.service.BookService;
+import com.mysql.cj.x.protobuf.MysqlxDatatypes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,6 +46,7 @@ public class AdminController {
 
         Book theBook = new Book();
 
+
         theModel.addAttribute("book", theBook);
 
         return "add-book";
@@ -53,6 +56,9 @@ public class AdminController {
     public String update(@RequestParam("bookId") int theId, Model theModel){
 
         Book theBook = bookService.getBooks(theId);
+        BookDetail bookDetail = bookService.getBooks(theId).getBookDetail();
+        theBook.setBookDetail(bookDetail);
+
         theModel.addAttribute("book", theBook);
         return "add-book";
     }
@@ -63,8 +69,9 @@ public class AdminController {
 
         if (theBindingResult.hasErrors()){
             return "add-book";
-        } else
+        } else{
             bookService.saveBook(theBook);
+        }
         return "redirect:/admin/menu";
     }
 

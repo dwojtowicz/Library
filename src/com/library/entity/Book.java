@@ -30,7 +30,7 @@ public class Book {
     @Column(name = "quantity")
     private int quantity;
 
-    @NotNull(message = "is required")
+
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "book_detail_id")
     private BookDetail bookDetail;

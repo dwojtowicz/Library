@@ -51,7 +51,7 @@
 
         <tr>
             <td>Book Details</td>
-            <td><form:input path="bookDetail"/></td>
+            <td><form:input path="bookDetail.description"/></td>
             <td><form:errors path="bookDetail" cssClass="error"/></td>
         </tr>
 

@@ -18,9 +18,9 @@ public interface BookService {
 
     Book depositBook(int theId);
 
-    BookDetail saveDetail(BookDetail bookDetail);
-
     List<Book> searchBook(String theSearchName);
 
     void deleteBook(int theId);
+
+    BookDetail getDetail(int detailId);
 }
